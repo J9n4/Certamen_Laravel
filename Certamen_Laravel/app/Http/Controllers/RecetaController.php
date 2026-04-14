@@ -24,7 +24,7 @@ class RecetaController extends Controller
                 '6. Sellar bien y pintar con huevo',
                 '7. Hornear a 200°C por 25 minutos'
             ],
-            'imagen_url' => 'https://minervafoods.com/wp-content/uploads/2022/12/empanadas_de_pino-1.jpg'
+            'imagen_url' => 'https://images.unsplash.com/photo-1625693938322-22e7fe9f1d92?w=500&h=400'
         ],
         [
             'id' => 2,
@@ -137,7 +137,7 @@ class RecetaController extends Controller
                 '6. Acompañar con un durazno seco',
                 '7. Consumir frío'
             ],
-            'imagen_url' => 'https://images.unsplash.com/photo-1629985298213-d6a87b2b2aea?w=500&h=400'
+            'imagen_url' => 'https://images.unsplash.com/photo-1605350499968-c1aad18978b4?w=500&h=400'
         ],
         [
             'id' => 8,
@@ -156,7 +156,7 @@ class RecetaController extends Controller
                 '6. Rellenar cada alfajor con dulce de leche',
                 '7. Cubrir con chocolate derretido'
             ],
-            'imagen_url' => 'https://images.unsplash.com/photo-1584080298039-4a2a8be26eda?w=500&h=400'
+            'imagen_url' => 'https://images.unsplash.com/photo-1590908026626-af77b2e05f50?w=500&h=400'
         ]
     ];
 
