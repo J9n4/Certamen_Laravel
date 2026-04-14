@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-red-50 p-6">
-    <div class="max-w-4xl mx-auto">
-        <!-- Botón volver -->
-        <div class="mb-6">
-            <a href="{{ route('recetas.index') }}" class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-700 font-bold py-3 px-6 rounded-lg shadow-md transition">
-                ← Volver a recetas
-            </a>
-        </div>
+@section('title', 'Detalle de Receta - RecetasChilenas')
 
-        <!-- Card principal -->
-        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+@section('content')
+<div>
+    <!-- Botón volver -->
+    <div class="mb-6">
+        <a href="{{ route('recetas.index') }}" class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-700 font-bold py-3 px-6 rounded-lg shadow-md transition">
+            ← Volver a recetas
+        </a>
+    </div>
+
+    <!-- Card principal -->
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
             <!-- Imagen de la receta -->
             @if(isset($receta['imagen_url']))
                 <div class="w-full h-96 overflow-hidden bg-gray-200">
@@ -19,7 +20,7 @@
                 </div>
             @endif
 
-            <!-- Header con gradiente -->
+<!-- Header con gradiente --> 
             <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-8 text-white">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ $receta['nombre'] }}</h1>
                 
@@ -113,6 +114,6 @@
                 </a>
             </div>
         </div>
-    </div>
 </div>
+
 @endsection
