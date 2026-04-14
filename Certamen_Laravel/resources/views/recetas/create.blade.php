@@ -6,8 +6,8 @@
 <div class="max-w-2xl mx-auto">
     <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-8">
-            <h1 class="text-4xl font-bold text-white mb-2">Crear Nueva Receta</h1>
+        <div class="bg-blue-600 px-8 py-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Crear Nueva Receta</h1>
             <p class="text-purple-100">Comparte tu receta favorita con nosotros</p>
         </div>
 
@@ -26,12 +26,12 @@
                     name="nombre" 
                     value="{{ old('nombre') }}"
                     placeholder="Ej: Empanad de Pino"
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('nombre') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('nombre') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none"
                     required
                 >
                 @error('nombre')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -44,7 +44,7 @@
                 <select 
                     id="tipo" 
                     name="tipo"
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('tipo') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('tipo') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none"
                     required
                 >
                     <option value="">-- Seleccionar --</option>
@@ -53,8 +53,8 @@
                     @endforeach
                 </select>
                 @error('tipo')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -67,7 +67,7 @@
                 <select 
                     id="dificultad" 
                     name="dificultad"
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('dificultad') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('dificultad') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none"
                     required
                 >
                     <option value="">-- Seleccionar --</option>
@@ -76,8 +76,8 @@
                     @endforeach
                 </select>
                 @error('dificultad')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -92,12 +92,12 @@
                     name="descripcion" 
                     rows="4"
                     placeholder="Describe brevemente tu receta..."
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('descripcion') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none resize-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('descripcion') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none resize-none"
                     required
                 >{{ old('descripcion') }}</textarea>
                 @error('descripcion')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -112,13 +112,13 @@
                     name="ingredientes" 
                     rows="3"
                     placeholder="Ej: Harina, Huevo, Sal, Agua, Aceite"
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('ingredientes') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none resize-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('ingredientes') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none resize-none"
                     required
                 >{{ old('ingredientes') }}</textarea>
-                <p class="text-xs text-gray-500 mt-1">💡 Separa cada ingrediente usando comas</p>
+                <p class="text-xs text-gray-500 mt-1">Separa cada ingrediente usando comas</p>
                 @error('ingredientes')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -133,13 +133,13 @@
                     name="pasos" 
                     rows="4"
                     placeholder="Ej: Mezclar ingredientes | Añadir relleno | Hornear a 180°C"
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('pasos') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none resize-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('pasos') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none resize-none"
                     required
                 >{{ old('pasos') }}</textarea>
-                <p class="text-xs text-gray-500 mt-1">💡 Separa cada paso usando el símbolo |</p>
+                <p class="text-xs text-gray-500 mt-1">Separa cada paso usando el símbolo |</p>
                 @error('pasos')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -157,12 +157,12 @@
                     max="480"
                     value="{{ old('tiempo') }}"
                     placeholder="30"
-                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('tiempo') border-red-500 bg-red-50 @else border-gray-300 focus:border-purple-500 @enderror focus:outline-none"
+                    class="w-full px-4 py-3 border-2 rounded-lg transition @error('tipo') border-red-500 bg-red-50 @else border-gray-300 focus:border-blue-500 @enderror focus:outline-none"
                     required
                 >
                 @error('tiempo')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -178,12 +178,12 @@
                     name="imagen_url" 
                     value="{{ old('imagen_url') }}"
                     placeholder="https://ejemplo.com/imagen.jpg"
-                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition @error('imagen_url') border-red-500 bg-red-50 @enderror"
+                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition @error('imagen_url') border-red-500 bg-red-50 @enderror"
                 >
-                <p class="text-xs text-gray-500 mt-1">🖼️ Si no ingresas una URL, se usará una imagen por defecto</p>
+                <p class="text-xs text-gray-500 mt-1">Si no ingresas una URL, se usará una imagen por defecto</p>
                 @error('imagen_url')
-                    <div class="text-red-600 text-sm mt-2 flex items-center gap-2">
-                        <span>⚠️</span> {{ $message }}
+                    <div class="text-red-600 text-sm mt-2">
+                        {{ $message }}
                     </div>
                 @enderror
             </div>
@@ -192,16 +192,14 @@
             <div class="flex gap-4">
                 <button 
                     type="submit"
-                    class="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105"
+                    class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition"
                 >
-                    ✓ Crear Receta
+                    Crear Receta
                 </button>
                 <a 
                     href="{{ route('recetas.index') }}"
-                    class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-3 px-6 rounded-lg transition text-center"
-                >
-                    ✕ Cancelar
-                </a>
+                    class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-3 px-6 rounded-lg transition text-center\"
+                >\n                    Cancelar\n                </a>
             </div>
         </form>
     </div>
