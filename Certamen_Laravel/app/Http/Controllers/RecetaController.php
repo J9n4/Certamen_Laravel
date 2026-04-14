@@ -24,7 +24,7 @@ class RecetaController extends Controller
                 '6. Sellar bien y pintar con huevo',
                 '7. Hornear a 200°C por 25 minutos'
             ],
-            'imagen_url' => 'https://images.unsplash.com/photo-1555939594-58d7cb561537?w=500&h=400'
+            'imagen_url' => 'https://minervafoods.com/wp-content/uploads/2022/12/empanadas_de_pino-1.jpg'
         ],
         [
             'id' => 2,
@@ -33,9 +33,9 @@ class RecetaController extends Controller
             'dificultad' => 'Media',
             'descripcion' => 'Pescado fresco marinado en limón con sabores peruano-chilenos',
             'tiempo' => 30,
-            'ingredientes' => ['Pez espada', 'Limón', 'Cebolla roja', 'Cilantro', 'Ajo', 'Ají', 'Tomate'],
+            'ingredientes' => ['Pez', 'Limón', 'Cebolla roja', 'Cilantro', 'Ajo', 'Ají', 'Tomate'],
             'pasos' => [
-                '1. Cortar el pez espada en cubos pequeños',
+                '1. Cortar el pez  en cubos pequeños',
                 '2. Exprimir los limones para obtener el jugo',
                 '3. Marinar el pescado en jugo de limón durante 15-20 minutos',
                 '4. Preparar la salsa con cilantro, ajo y ají',
