@@ -21,17 +21,18 @@
 
                 <!-- Tipos de comida (Navegación) -->
                 <div class="hidden md:flex gap-2">
-                    <a href="{{ route('recetas.index') }}" class="px-4 py-2 rounded-lg transition duration-300 text-gray-700 hover:bg-purple-100 hover:text-purple-700 {{ request('tipo') === null && request()->route()->getName() === 'recetas.index' ? 'bg-purple-600 text-white' : '' }}">
+                    <a href="{{ route('recetas.index') }}" class="px-4 py-2 rounded-lg transition duration-300 text-gray-700 hover:bg-purple-100 hover:text-purple-700">
                         Todas
                     </a>
-                    @php
-                        $tipos = ['Entrada', 'Plato Principal', 'Postre'];
-                    @endphp
-                    @foreach($tipos as $t)
-                        <a href="{{ route('recetas.index', ['tipo' => $t]) }}" class="px-4 py-2 rounded-lg transition duration-300 text-gray-700 hover:bg-purple-100 hover:text-purple-700 {{ request('tipo') === $t ? 'bg-purple-600 text-white' : '' }}">
-                            {{ $t }}
-                        </a>
-                    @endforeach
+                    <a href="{{ route('recetas.index', ['tipo' => 'Entrada']) }}" class="px-4 py-2 rounded-lg transition duration-300 text-gray-700 hover:bg-purple-100 hover:text-purple-700">
+                        Entradas
+                    </a>
+                    <a href="{{ route('recetas.index', ['tipo' => 'Plato Principal']) }}" class="px-4 py-2 rounded-lg transition duration-300 text-gray-700 hover:bg-purple-100 hover:text-purple-700">
+                        Platos
+                    </a>
+                    <a href="{{ route('recetas.index', ['tipo' => 'Postre']) }}" class="px-4 py-2 rounded-lg transition duration-300 text-gray-700 hover:bg-purple-100 hover:text-purple-700">
+                        Postres
+                    </a>
                 </div>
 
                 <!-- Botón crear receta -->

@@ -3,7 +3,7 @@
 @section('title', 'Mis Recetas - RecetasChilenas')
 
 @section('content')
-<div>
+<div class="container mx-auto px-4 py-8">
     <!-- Header -->
     <div class="text-center mb-10">
         <h1 class="text-5xl font-bold text-gray-800 mb-2">🍳 Mis Recetas</h1>
@@ -12,99 +12,93 @@
 
     <!-- Panel de Filtros -->
     <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
-        <h2 class="text-xl font-bold text-gray-800 mb-4">🎯 Filtros</h2>
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Filtros</h2>
         
         <form action="{{ route('recetas.index') }}" method="GET" class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <!-- Filtro Tipo -->
                 <div>
                     <label for="tipo" class="block text-sm font-bold text-gray-700 mb-2">Tipo de Comida</label>
-                    <select 
-                        id="tipo" 
-                        name="tipo"
-                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500"
-                    >
+                    <select id="tipo" name="tipo" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg">
                         <option value="">-- Todas --</option>
-                        @foreach($tipos as $tipo)
-                            <option value="{{ $tipo }}" {{ $filtros['tipo'] === $tipo ? 'selected' : '' }}>
-                                {{ $tipo }}
-                            </option>
-                        @endforeach
+                        <option value="Entrada" {{ $filtros['tipo'] === 'Entrada' ? 'selected' : '' }}>Entrada</option>
+                        <option value="Plato Principal" {{ $filtros['tipo'] === 'Plato Principal' ? 'selected' : '' }}>Plato Principal</option>
+                        <option value="Postre" {{ $filtros['tipo'] === 'Postre' ? 'selected' : '' }}>Postre</option>
                     </select>
                 </div>
 
                 <!-- Filtro Dificultad -->
                 <div>
                     <label for="dificultad" class="block text-sm font-bold text-gray-700 mb-2">Dificultad</label>
-                    <select 
-                        id="dificultad" 
-                        name="dificultad"
-                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500"
-                    >
+                    <select id="dificultad" name="dificultad" class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg">
                         <option value="">-- Todas --</option>
-                        @foreach($dificultades as $dificultad)
-                            <option value="{{ $dificultad }}" {{ $filtros['dificultad'] === $dificultad ? 'selected' : '' }}>
-                                {{ $dificultad }}
-                            </option>
-                        @endforeach
+                        <option value="Fácil" {{ $filtros['dificultad'] === 'Fácil' ? 'selected' : '' }}>Fácil</option>
+                        <option value="Media" {{ $filtros['dificultad'] === 'Media' ? 'selected' : '' }}>Media</option>
+                        <option value="Difícil" {{ $filtros['dificultad'] === 'Difícil' ? 'selected' : '' }}>Difícil</option>
                     </select>
                 </div>
 
                 <!-- Búsqueda por nombre -->
                 <div>
                     <label for="buscar_filter" class="block text-sm font-bold text-gray-700 mb-2">Por Nombre</label>
-                    <input 
-                        type="text" 
-                        id="buscar_filter" 
-                        name="buscar" 
-                        value="{{ $filtros['buscar'] }}"
-                        placeholder="Buscar..."
-                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500"
-                    >
+                    <input type="text" id="buscar_filter" name="buscar" value="{{ $filtros['buscar'] }}" placeholder="Buscar..." class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg">
                 </div>
             </div>
 
             <div class="flex gap-2 justify-end flex-wrap">
-                <button 
-                    type="submit"
-                    class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition"
-                >
-                    ✓ Aplicar Filtros
-                </button>
-                <a 
-                    href="{{ route('recetas.index') }}"
-                    class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-6 rounded-lg transition text-center"
-                >
-                    ↻ Limpiar
-                </a>
+                <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition">Aplicar</button>
+                <a href="{{ route('recetas.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-6 rounded-lg transition text-center">Limpiar</a>
             </div>
         </form>
     </div>
 
     <!-- Estadísticas -->
     <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg p-6 mb-8 text-white">
-        <p class="text-lg font-bold">📊 Mostrando <strong>{{ count($recetas) }}</strong> receta(s)</p>
+        <p class="text-lg font-bold">Mostrando {{ count($recetas) }} receta(s)</p>
     </div>
 
-    <!-- Grid de recetas usando @foreach y parcial -->
-    @if(count($recetas) > 0)
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Grid de recetas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @if(count($recetas) > 0)
             @foreach($recetas as $receta)
-                @include('recetas.partials.receta-card', ['receta' => $receta])
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-200 to-pink-200 overflow-hidden relative">
+                        @if(isset($receta['imagen_url']))
+                            <img src="{{ $receta['imagen_url'] }}" alt="{{ $receta['nombre'] }}" class="w-full h-full object-cover">
+                        @else
+                            <div class="w-full h-full flex items-center justify-center text-6xl">🍽️</div>
+                        @endif
+                        <div class="absolute top-3 left-3 bg-white px-3 py-1 rounded-full text-xs font-bold text-purple-600">
+                            {{ $receta['tipo'] }}
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $receta['nombre'] }}</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold @if($receta['dificultad'] === 'Fácil') bg-green-100 text-green-700 @elseif($receta['dificultad'] === 'Media') bg-yellow-100 text-yellow-700 @else bg-red-100 text-red-700 @endif">
+                                {{ $receta['dificultad'] }}
+                            </span>
+                            <span class="text-sm text-gray-700 font-semibold">⏱️ {{ $receta['tiempo'] }} min</span>
+                        </div>
+                        <a href="{{ route('recetas.show', $receta['id']) }}" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition block text-center">Ver receta</a>
+                    </div>
+                </div>
             @endforeach
-        </div>
-    @else
-        <div class="bg-white rounded-xl shadow-lg p-12 text-center">
-            <p class="text-2xl text-gray-600 mb-4">😢 No se encontraron recetas</p>
-            <p class="text-gray-500 mb-6">Intenta ajustar los filtros o crear una nueva receta</p>
-            <a href="{{ route('recetas.index') }}" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition mr-3">
-                ↻ Limpiar filtros
-            </a>
+        @else
+            <div class="col-span-full bg-white rounded-xl shadow-lg p-12 text-center">
+                <p class="text-2xl text-gray-600 mb-4">No se encontraron recetas</p>
+                <a href="{{ route('recetas.create') }}" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition">+ Crear Receta</a>
+            </div>
+        @endif
+    </div>
+
+    <!-- Botón crear al final -->
+    @if(count($recetas) > 0)
+        <div class="mt-12 text-center">
             <a href="{{ route('recetas.create') }}" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition">
                 + Crear Receta
             </a>
         </div>
     @endif
 </div>
-
 @endsection
